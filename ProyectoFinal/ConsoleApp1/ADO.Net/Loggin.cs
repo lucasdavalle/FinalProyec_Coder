@@ -41,10 +41,12 @@ namespace ProyectoFinal
             }
             if(String.Equals(usuario.Contraseña,Contraseña))
             {
+                Console.WriteLine("Contraseña Correcta");
                 return usuario;
             }
             else
             {
+                Console.WriteLine("Contraseña Incorrecta");
                 return new Usuario();
             }
             

@@ -14,7 +14,8 @@ namespace ProyectoFinal
         {
             List<ProductoVendido> productosvendido = new List<ProductoVendido>();
             String Query = "SELECT * From Producto AS P " +
-                          "INNER JOIN ProductoVendido AS PV ON PV.IdProducto = @IdUsuario";
+                          "INNER JOIN ProductoVendido AS PV ON PV.IdProducto = P.Id " +
+                          "WHERE P.IdUsuario = @idUsuario";
 
             using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
             {

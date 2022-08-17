@@ -14,7 +14,10 @@ namespace ProyectoFinal
         {
             List<Venta> ventas = new List<Venta>();
             ProductoVendidoHandler productoVendidoHandler = new ProductoVendidoHandler();
-            string Query = "SELECT * FROM Ventas WHERE Id = @idUsuario";
+            string Query = "SELECT DISTINCT V.* FROM Venta AS V " +
+                           "INNER JOIN ProductoVendido AS PV ON V.Id = PV.IdVenta" +
+                           "INNER JOIN Producto AS P ON PV.IdProducto = P.Id" +
+                           "WHERE P.IdUsuario = @idUsuario";
 
             using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
             {
